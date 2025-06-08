@@ -2,55 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Virtue Signal Points App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtue Signal Score</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Virtue Signal Points</h1>
-    <p class="sub">I am...</p>
-    <select multiple id="self-identity">
-      <option value="black">Black</option>
-      <option value="latina">Latina</option>
-      <option value="white">White</option>
-      <option value="poor">Poor</option>
-      <option value="rich">Rich</option>
-      <option value="trans">Trans</option>
-      <option value="gay">Gay</option>
-      <option value="straight">Straight</option>
-      <option value="nonbinary">Nonbinary</option>
-      <option value="woman">Woman</option>
-      <option value="man">Man</option>
-      <option value="left">Left-leaning</option>
-      <option value="right">Right-leaning</option>
-      <option value="neurodivergent">Neurodivergent</option>
-      <option value="religious">Religious</option>
-    </select>
+    <h1>🧠 Virtue Signal Score Calculator</h1>
+    
+    <!-- SECTION 1: SELF-IDENTITY -->
+    <section id="section1">
+      <h2>I am...</h2>
+      <form id="identityForm">
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="identity" value="15"> Black</label>
+          <label><input type="checkbox" name="identity" value="15"> Indigenous</label>
+          <label><input type="checkbox" name="identity" value="15"> Person of Color</label>
+          <label><input type="checkbox" name="identity" value="15"> LGBTQ+</label>
+          <label><input type="checkbox" name="identity" value="10"> Female</label>
+          <label><input type="checkbox" name="identity" value="10"> Disabled</label>
+          <label><input type="checkbox" name="identity" value="10"> Poor</label>
+          <label><input type="checkbox" name="identity" value="5"> Neurodivergent</label>
+          <label><input type="checkbox" name="identity" value="5"> Democrat</label>
+          <label><input type="checkbox" name="identity" value="0"> Non-religious</label>
+          <label><input type="checkbox" name="identity" value="10"> Religious Minority</label>
+        </div>
+        <button type="button" onclick="calculateVirtueScore()">Submit Identity</button>
+      </form>
+      <p id="virtueScoreResult"></p>
+    </section>
 
-    <p class="sub">Opposed to...</p>
-    <select multiple id="opposing-identity">
-      <option value="black">Black</option>
-      <option value="latina">Latina</option>
-      <option value="white">White</option>
-      <option value="poor">Poor</option>
-      <option value="rich">Rich</option>
-      <option value="trans">Trans</option>
-      <option value="gay">Gay</option>
-      <option value="straight">Straight</option>
-      <option value="nonbinary">Nonbinary</option>
-      <option value="woman">Woman</option>
-      <option value="man">Man</option>
-      <option value="left">Left-leaning</option>
-      <option value="right">Right-leaning</option>
-      <option value="neurodivergent">Neurodivergent</option>
-      <option value="religious">Religious</option>
-    </select>
+    <!-- SECTION 2: OPPONENT IDENTITY -->
+    <section id="section2" style="display:none">
+      <h2>I oppose someone who is...</h2>
+      <form id="opponentForm">
+        <div class="checkbox-group">
+          <label><input type="checkbox"> Black</label>
+          <label><input type="checkbox"> Indigenous</label>
+          <label><input type="checkbox"> Person of Color</label>
+          <label><input type="checkbox"> LGBTQ+</label>
+          <label><input type="checkbox"> Female</label>
+          <label><input type="checkbox"> Disabled</label>
+          <label><input type="checkbox"> Poor</label>
+          <label><input type="checkbox"> Neurodivergent</label>
+          <label><input type="checkbox"> Democrat</label>
+          <label><input type="checkbox"> Non-religious</label>
+          <label><input type="checkbox"> Religious Minority</label>
+        </div>
+        <button type="button" onclick="revealHypocrisy()">Submit Opposition</button>
+      </form>
+      <p id="oppositionResult"></p>
+    </section>
 
-    <button onclick="calculateVirtue()">Show Me My Score</button>
-    <div id="result"></div>
-
-    <button onclick="alert('Phase 2 coming soon!')">Test My Score</button>
+    <!-- SECTION 3: REFLECTION -->
+    <section id="section3" style="display:none">
+      <h2>Quick Reflection</h2>
+      <p>Would you still support this person if they disagreed with your beliefs or politics?</p>
+      <button onclick="finalVerdict()">I’ll be honest...</button>
+      <p id="finalMessage"></p>
+    </section>
   </div>
 
   <script src="script.js"></script>
