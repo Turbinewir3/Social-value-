@@ -68,3 +68,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+// Show Section 2 after Section 1 is submitted
+document.getElementById("identityForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  document.getElementById("section1").style.display = "none";
+  document.getElementById("section2").style.display = "block";
+});
+
+// React to user's answer in Section 2
+document.getElementById("virtueDespiteDisagreement").addEventListener("change", function () {
+  const value = this.value;
+  const retractionOptions = document.getElementById("retractionOptions");
+  if (value === "no") {
+    retractionOptions.style.display = "block";
+  } else {
+    retractionOptions.style.display = "none";
+  }
+});
+
+// Handle Section 2 submission
+document.getElementById("moralityCheckForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const answer = document.getElementById("virtueDespiteDisagreement").value;
+  if (answer === "no") {
+    const selected = Array.from(document.getElementById("traitRetractions").selectedOptions).map(opt => opt.text);
+    alert("⚠️ Hypocrisy detected!\nYou’re withholding virtue based on: " + selected.join(", "));
+  } else {
+    alert("✅ Consistency maintained. Moving on...");
+  }
+
+  // Proceed to Section 3 here...
+});
