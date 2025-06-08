@@ -1,1 +1,185 @@
-Virtue Score Evaluator body { background-color: #111; color: #fff; font-family: Arial, sans-serif; margin: 0; padding: 2rem; } h1 { font-size: 2rem; margin-bottom: 1rem; } label { display: block; margin-top: 1rem; font-weight: bold; } select { width: 100%; padding: 0.5rem; margin-top: 0.25rem; background-color: #222; color: white; border: 1px solid #555; border-radius: 4px; } button { margin-top: 2rem; padding: 0.75rem 2rem; background-color: #444; color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; } button:hover { background-color: #666; } 🧠 Virtue Score Evaluator Race: -- select an option -- White Black or African American Asian American Indian or Alaska Native Native Hawaiian or Pacific Islander Mixed / Multiracial Other <label>Ethnicity:</label> <select id="ethnicity"> <option disabled selected value> -- select an option -- </option> <option>Hispanic or Latino</option> <option>Not Hispanic or Latino</option> <option>Mexican</option> <option>Puerto Rican</option> <option>Cuban</option> <option>Dominican</option> <option>Central American</option> <option>South American</option> <option>Spaniard</option> <option>Other Latino / Hispanic</option> <option>Middle Eastern / North African</option> <option>Jewish (ethnic)</option> <option>Multiracial / Mixed</option> <option>Other</option> <option>Prefer not to say</option> </select> <label>Religion:</label> <select id="religion"> <option disabled selected value> -- select an option -- </option> <option>Christian</option> <option>Muslim</option> <option>Jewish</option> <option>Buddhist</option> <option>Hindu</option> <option>Spiritual but not religious</option> <option>Atheist</option> <option>Agnostic</option> <option>Other</option> <option>Prefer not to say</option> </select> <label>Gender:</label> <select id="gender"> <option disabled selected value> -- select an option -- </option> <option>Male</option> <option>Female</option> <option>Nonbinary</option> <option>Transgender</option> <option>Intersex</option> <option>Other</option> <option>Prefer not to say</option> </select> <label>Sexual Orientation:</label> <select id="orientation"> <option disabled selected value> -- select an option -- </option> <option>Straight / Heterosexual</option> <option>Gay</option> <option>Lesbian</option> <option>Bisexual</option> <option>Pansexual</option> <option>Asexual</option> <option>Queer</option> <option>Other</option> <option>Prefer not to say</option> </select> <label>Age:</label> <select id="age"> <option disabled selected value> -- select an option -- </option> <option>Under 18</option> <option>18–29</option> <option>30–49</option> <option>50–64</option> <option>65+</option> </select> <label>Financial Status:</label> <select id="financial"> <option disabled selected value> -- select an option -- </option> <option>Struggling</option> <option>Getting by</option> <option>Comfortable</option> <option>Wealthy</option> </select> <label>Education Level:</label> <select id="education"> <option disabled selected value> -- select an option -- </option> <option>No high school diploma</option> <option>High School / GED</option> <option>Some college</option> <option>College degree</option> <option>Postgraduate degree</option> </select> <label>Political Beliefs:</label> <select id="politics"> <option disabled selected value> -- select an option -- </option> <option>Left / Progressive</option> <option>Centrist / Moderate</option> <option>Right / Conservative</option> <option>Apolitical</option> <option>Other</option> </select> <label>Attitude Toward Authority:</label> <select id="authority"> <option disabled selected value> -- select an option -- </option> <option>Respectful</option> <option>Skeptical</option> <option>Defiant</option> </select> <button type="submit">Next</button> const form = document.getElementById('identityForm'); const selects = form.querySelectorAll('select'); selects.forEach(select => { select.addEventListener('change', () => { select.blur(); // simulate closing the dropdown after choice }); }); form.addEventListener('submit', function (e) { e.preventDefault(); alert("Thanks! Moving to the next section..."); // You could trigger the next section logic here }); 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtue Score Evaluator</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      background-color: #222;
+      color: white;
+      border: 1px solid #555;
+      border-radius: 4px;
+    }
+    form {
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    button {
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #666;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Virtue Score Evaluator</h1>
+  <form id="identityForm">
+    <label>Race:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>White</option>
+        <option>Black or African American</option>
+        <option>Asian</option>
+        <option>American Indian or Alaska Native</option>
+        <option>Native Hawaiian or Pacific Islander</option>
+        <option>Mixed / Multiracial</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Ethnicity:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>Hispanic or Latino</option>
+        <option>Not Hispanic or Latino</option>
+        <option>Middle Eastern or North African</option>
+        <option>East Asian</option>
+        <option>South Asian</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Religion:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>Christian</option>
+        <option>Muslim</option>
+        <option>Jewish</option>
+        <option>Hindu</option>
+        <option>Buddhist</option>
+        <option>Atheist</option>
+        <option>Spiritual but not religious</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Gender:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Non-binary</option>
+        <option>Transgender</option>
+        <option>Intersex</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Sexual Orientation:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>Heterosexual</option>
+        <option>Gay</option>
+        <option>Lesbian</option>
+        <option>Bisexual</option>
+        <option>Pansexual</option>
+        <option>Asexual</option>
+        <option>Queer</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Age:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>Under 18</option>
+        <option>18–29</option>
+        <option>30–49</option>
+        <option>50–64</option>
+        <option>65+</option>
+      </select>
+    </label>
+    <label>Financial Status:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>Struggling</option>
+        <option>Middle Class</option>
+        <option>Comfortable</option>
+        <option>Wealthy</option>
+      </select>
+    </label>
+    <label>Education Level:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>High School / GED</option>
+        <option>Some College</option>
+        <option>Bachelor’s Degree</option>
+        <option>Graduate Degree</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Political Beliefs:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>Left / Progressive</option>
+        <option>Centrist / Moderate</option>
+        <option>Right / Conservative</option>
+        <option>Libertarian</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Attitude Toward Authority:
+      <select required>
+        <option disabled selected>– select an option –</option>
+        <option>Supportive</option>
+        <option>Skeptical</option>
+        <option>Rebellious</option>
+        <option>Neutral</option>
+      </select>
+    </label>
+    <button type="submit">Next</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('identityForm');
+    const selects = form.querySelectorAll('select');
+
+    // Auto-close dropdown on selection
+    selects.forEach(select => {
+      select.addEventListener('change', () => {
+        select.blur(); // Automatically closes the select menu
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Thanks! Moving to the next section...");
+      // TODO: Trigger Section 2 loading here
+    });
+  </script>
+</body>
+</html>
