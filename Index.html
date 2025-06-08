@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtue Signal Points App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Virtue Signal Points</h1>
+    <p class="sub">I am...</p>
+    <select multiple id="self-identity">
+      <option value="black">Black</option>
+      <option value="latina">Latina</option>
+      <option value="white">White</option>
+      <option value="poor">Poor</option>
+      <option value="rich">Rich</option>
+      <option value="trans">Trans</option>
+      <option value="gay">Gay</option>
+      <option value="straight">Straight</option>
+      <option value="nonbinary">Nonbinary</option>
+      <option value="woman">Woman</option>
+      <option value="man">Man</option>
+      <option value="left">Left-leaning</option>
+      <option value="right">Right-leaning</option>
+      <option value="neurodivergent">Neurodivergent</option>
+      <option value="religious">Religious</option>
+    </select>
+
+    <p class="sub">Opposed to...</p>
+    <select multiple id="opposing-identity">
+      <option value="black">Black</option>
+      <option value="latina">Latina</option>
+      <option value="white">White</option>
+      <option value="poor">Poor</option>
+      <option value="rich">Rich</option>
+      <option value="trans">Trans</option>
+      <option value="gay">Gay</option>
+      <option value="straight">Straight</option>
+      <option value="nonbinary">Nonbinary</option>
+      <option value="woman">Woman</option>
+      <option value="man">Man</option>
+      <option value="left">Left-leaning</option>
+      <option value="right">Right-leaning</option>
+      <option value="neurodivergent">Neurodivergent</option>
+      <option value="religious">Religious</option>
+    </select>
+
+    <button onclick="calculateVirtue()">Show Me My Score</button>
+    <div id="result"></div>
+
+    <button onclick="alert('Phase 2 coming soon!')">Test My Score</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
