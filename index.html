@@ -183,3 +183,36 @@
   </script>
 </body>
 </html>
+<!-- Section 2: Moral Consistency -->
+<section id="section2" style="display: none;">
+  <form id="moralityCheckForm">
+    <h2>🧠 Moral Consistency Check</h2>
+
+    <label for="virtueDespiteDisagreement">
+      Do you still give someone virtue points if they disagree with you ideologically?
+    </label>
+    <select id="virtueDespiteDisagreement" required>
+      <option value="" disabled selected>– select an option –</option>
+      <option value="yes">Yes, virtue is separate from opinion</option>
+      <option value="no">No, disagreement undermines virtue</option>
+    </select>
+
+    <div id="retractionOptions" style="display: none; margin-top: 1rem;">
+      <label>Select which identity traits you would retract virtue points for:</label>
+      <select id="traitRetractions" multiple>
+        <option value="race">Race</option>
+        <option value="ethnicity">Ethnicity</option>
+        <option value="religion">Religion</option>
+        <option value="gender">Gender</option>
+        <option value="sexualOrientation">Sexual Orientation</option>
+        <option value="age">Age</option>
+        <option value="financialStatus">Financial Status</option>
+        <option value="education">Education</option>
+        <option value="politics">Political Beliefs</option>
+        <option value="authority">Attitude Toward Authority</option>
+      </select>
+    </div>
+
+    <button type="submit">Next</button>
+  </form>
+</section>
