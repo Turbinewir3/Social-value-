@@ -37,6 +37,7 @@
   <h1>🧠 Virtue Score Evaluator</h1>
 
   <h2>I identify as:</h2>
+
   <label for="race">Race:</label>
   <select id="race">
     <option>Choose one</option>
@@ -76,7 +77,7 @@
     <option value="Arab">Arab</option>
     <option value="Hispanic">Hispanic</option>
     <option value="Indigenous">Indigenous</option>
-    <option value="None/Other">Other</option>
+    <option value="Other">Other</option>
   </select>
 
   <label for="religion">Religion:</label>
@@ -107,19 +108,11 @@
   <label for="age">Age:</label>
   <select id="age">
     <option>Choose one</option>
-    <optgroup label="Vintage Wisdom">
-      <option value="65+">65+</option>
-      <option value="50-64">50–64</option>
-    </optgroup>
-    <optgroup label="Midlife Mastery">
-      <option value="30-49">30–49</option>
-    </optgroup>
-    <optgroup label="Youthful Energy">
-      <option value="18-29">18–29</option>
-    </optgroup>
-    <optgroup label="Gen Z Baby">
-      <option value="Under 18">Under 18</option>
-    </optgroup>
+    <option value="65+">65+</option>
+    <option value="50-64">50–64</option>
+    <option value="30-49">30–49</option>
+    <option value="18-29">18–29</option>
+    <option value="Under 18">Under 18</option>
   </select>
 
   <label for="finances">Financial Status:</label>
@@ -161,6 +154,36 @@
   </select>
 
   <button id="nextBtn">Next</button>
+
+  <script>
+    document.getElementById("nextBtn").addEventListener("click", function() {
+      const fields = [
+        'race', 'ethnicity', 'religion', 'sex',
+        'age', 'finances', 'education',
+        'politics', 'authority'
+      ];
+
+      let incomplete = false;
+      let values = {};
+
+      for (let field of fields) {
+        const val = document.getElementById(field).value;
+        if (val === "Choose one") {
+          incomplete = true;
+          break;
+        }
+        values[field] = val;
+      }
+
+      if (incomplete) {
+        alert("Please complete all selections before continuing.");
+      } else {
+        console.log("Selections:", values);
+        alert("Thanks! Moving to the next section...");
+        // You can trigger a screen change here instead
+      }
+    });
+  </script>
 
 </body>
 </html>
