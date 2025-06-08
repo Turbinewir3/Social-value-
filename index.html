@@ -3,56 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Virtue Signal Score</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Virtue Score App</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <div class="container">
-    <h1>🧠 Virtue Signal Score Calculator</h1>
+    <h1>🧠 Virtue Score Evaluator</h1>
+    <p>I identify as:</p>
+    <div id="identity-section" class="dropdowns"></div>
 
-    <!-- Section 1 -->
-    <h2>I am...</h2>
-    <div class="options">
-      <label><input type="checkbox" name="self" value="black"> Black</label>
-      <label><input type="checkbox" name="self" value="indigenous"> Indigenous</label>
-      <label><input type="checkbox" name="self" value="personOfColor"> Person of Color</label>
-      <label><input type="checkbox" name="self" value="gay"> LGBTQ+</label>
-      <label><input type="checkbox" name="self" value="woman"> Female</label>
-      <label><input type="checkbox" name="self" value="disabled"> Disabled</label>
-      <label><input type="checkbox" name="self" value="poor"> Poor</label>
-      <label><input type="checkbox" name="self" value="neurodivergent"> Neurodivergent</label>
-      <label><input type="checkbox" name="self" value="left"> Democrat</label>
-      <label><input type="checkbox" name="self" value="atheist"> Non-religious</label>
-      <label><input type="checkbox" name="self" value="religiousMinority"> Religious Minority</label>
+    <p>I am opposed to someone who is:</p>
+    <div id="opposed-section" class="dropdowns"></div>
+
+    <button id="calculate-btn">Calculate My Virtue Score</button>
+
+    <div id="score-section" class="hidden">
+      <h2>Your Portrayed Virtue Score: <span id="virtue-score"></span></h2>
     </div>
 
-    <!-- Section 2 -->
-    <h2>The other person is...</h2>
-    <div class="options">
-      <label><input type="checkbox" name="opposed" value="black"> Black</label>
-      <label><input type="checkbox" name="opposed" value="indigenous"> Indigenous</label>
-      <label><input type="checkbox" name="opposed" value="personOfColor"> Person of Color</label>
-      <label><input type="checkbox" name="opposed" value="gay"> LGBTQ+</label>
-      <label><input type="checkbox" name="opposed" value="woman"> Female</label>
-      <label><input type="checkbox" name="opposed" value="disabled"> Disabled</label>
-      <label><input type="checkbox" name="opposed" value="poor"> Poor</label>
-      <label><input type="checkbox" name="opposed" value="neurodivergent"> Neurodivergent</label>
-      <label><input type="checkbox" name="opposed" value="left"> Democrat</label>
-      <label><input type="checkbox" name="opposed" value="atheist"> Non-religious</label>
-      <label><input type="checkbox" name="opposed" value="religiousMinority"> Religious Minority</label>
+    <div id="hypocrisy-section" class="hidden">
+      <p>Would you still give them virtue points if they disagree with you ideologically?</p>
+      <button class="hypo-btn" data-answer="yes">Yes</button>
+      <button class="hypo-btn" data-answer="no">No</button>
     </div>
 
-    <!-- Section 3 -->
-    <h2>Do you still give them virtue points if they disagree with you?</h2>
-    <label><input type="radio" name="grantVirtue" value="yes"> Yes</label>
-    <label><input type="radio" name="grantVirtue" value="no"> No</label>
-
-    <!-- Section 4 -->
-    <div style="margin-top: 2rem;">
-      <button onclick="calculateScore()">Calculate Score</button>
+    <div id="penalty-section" class="hidden">
+      <p>Select the traits you would ignore their virtue for:</p>
+      <div id="penalty-options" class="dropdowns"></div>
     </div>
 
-    <div id="results"></div>
+    <div id="final-result" class="hidden">
+      <h2>🧾 Final Scorecard</h2>
+      <p>Portrayed Score: <span id="portrayed"></span></p>
+      <p>Revealed Score: <span id="revealed"></span></p>
+      <p id="hypocrisy-msg"></p>
+    </div>
   </div>
 
   <script src="script.js"></script>
