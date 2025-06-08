@@ -1,40 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Virtue Score Evaluator</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Georgia, serif;
+      padding: 20px;
+    }
+    h1, h2 {
+      font-weight: bold;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      margin: 10px 0;
+      padding: 8px 12px;
+      font-weight: bold;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+    button:hover {
+      background-color: #666;
+    }
+    select {
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🧠 Virtue Score Evaluator</h1>
 
-    <div id="section-1">
-      <h2>I identify as:</h2>
-      <div id="identity-section"></div>
-      <button id="next-button">Next</button>
-    </div>
+  <h1>🧠 Virtue Score Evaluator</h1>
 
-    <div id="section-2" class="hidden">
-      <h2>I am opposed to someone who is:</h2>
-      <div id="opposed-section"></div>
-      <button id="compare-button">Continue</button>
-    </div>
+  <h2>I identify as:</h2>
+  <div id="identity-section"></div>
+  <button id="next-button">Next</button>
 
-    <div id="question-3" class="hidden">
-      <h3>Would you still give them virtue points if they disagree with you ideologically?</h3>
-      <button id="yes-button">Yes</button>
-      <button id="no-button">No</button>
-    </div>
-
-    <div id="penalty-section" class="hidden">
-      <h3>Select the traits you would ignore their virtue for:</h3>
-      <div id="penalty-options"></div>
-    </div>
-
-    <div id="result" class="result"></div>
+  <div id="section-2" class="hidden">
+    <h2>I am opposed to someone who is:</h2>
+    <div id="opposed-section"></div>
+    <button id="compare-button">Continue</button>
   </div>
+
+  <div id="question-3" class="hidden">
+    <h2>Would you still give them virtue points if they disagree with you ideologically?</h2>
+    <button id="yes-button">Yes</button>
+    <button id="no-button">No</button>
+  </div>
+
+  <div id="penalty-section" class="hidden">
+    <h2>Select the traits you would ignore their virtue for:</h2>
+    <div id="penalty-options"></div>
+  </div>
+
+  <div id="result" style="margin-top: 20px;"></div>
 
   <script src="script.js"></script>
 </body>
