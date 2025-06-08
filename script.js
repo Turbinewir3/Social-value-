@@ -1,39 +1,48 @@
-const weights = {
-  black: 3,
-  latina: 3,
-  white: -2,
-  poor: 2,
-  rich: -2,
-  trans: 3,
-  gay: 2,
-  straight: -1,
-  nonbinary: 2,
-  woman: 2,
-  man: -1,
-  left: 1,
-  right: -2,
-  neurodivergent: 1,
-  religious: 0,
+const traitPoints = {
+  black: 10,
+  gay: 10,
+  trans: 10,
+  woman: 5,
+  poor: 7,
+  disabled: 8,
+  left: 5,
+  atheist: 3
 };
 
-function calculateVirtue() {
-  const self = Array.from(document.getElementById("self-identity").selectedOptions).map(o => o.value);
-  const other = Array.from(document.getElementById("opposing-identity").selectedOptions).map(o => o.value);
+function calculateScore() {
+  const selfChecks = document.querySelectorAll("input[name='self']:checked");
+  const opposedChecks = document.querySelectorAll("input[name='opposed']:checked");
+  const grantVirtue = document.querySelector("input[name='grantVirtue']:checked");
 
-  let score = 0;
+  let userVirtueScore = 0;
+  let opposedVirtueScore = 0;
 
-  self.forEach(trait => score += weights[trait] || 0);
-  other.forEach(trait => score -= weights[trait] || 0);
+  // Section 1: Score for user's selected identities
+  selfChecks.forEach((input) => {
+    if (traitPoints[input.value]) {
+      userVirtueScore += traitPoints[input.value];
+    }
+  });
 
-  let label = "Centrist Ghost";
-  if (score >= 9) label = "Supreme Ally";
-  else if (score >= 5) label = "Virtue Knight";
-  else if (score >= 1) label = "Moderate Advocate";
-  else if (score <= -4) label = "Problematic Patriot";
-  else if (score <= -7) label = "Oppression Overlord";
+  // Section 2: Opponent traits do NOT accumulate any virtue score
+  opposedChecks.forEach((input) => {
+    if (traitPoints[input.value]) {
+      opposedVirtueScore += 0; // Always zero
+    }
+  });
 
-  document.getElementById("result").innerHTML = `
-    <h2>Your Score: ${score}</h2>
-    <p>You earned the title: <strong>${label}</strong></p>
+  // Section 3: Hypocrisy Detection
+  let hypocrisyMessage = '';
+  if (grantVirtue?.value === 'no' && opposedVirtueScore === 0 && opposedChecks.length > 0) {
+    hypocrisyMessage = '<strong>Detected:</strong> You claimed to support marginalized traits, but denied virtue when they disagreed with you.';
+    userVirtueScore = 0; // Disqualify for hypocrisy
+  }
+
+  // Display results
+  const resultDiv = document.getElementById('results');
+  resultDiv.innerHTML = `
+    <p><strong>Your Virtue Signal Score:</strong> ${userVirtueScore}</p>
+    <p><strong>Their Virtue Points:</strong> 0 (no matter what)</p>
+    ${hypocrisyMessage ? `<p style="color: red;">${hypocrisyMessage}</p>` : ''}
   `;
 }
