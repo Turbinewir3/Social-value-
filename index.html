@@ -1,43 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Virtue Score App</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtue Score Evaluator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
     <h1>🧠 Virtue Score Evaluator</h1>
-    <p>I identify as:</p>
-    <div id="identity-section" class="dropdowns"></div>
 
-    <p>I am opposed to someone who is:</p>
-    <div id="opposed-section" class="dropdowns"></div>
-
-    <button id="calculate-btn">Calculate My Virtue Score</button>
-
-    <div id="score-section" class="hidden">
-      <h2>Your Portrayed Virtue Score: <span id="virtue-score"></span></h2>
+    <div id="section-1">
+      <h2>I identify as:</h2>
+      <div id="identity-section"></div>
+      <button id="next-button">Next</button>
     </div>
 
-    <div id="hypocrisy-section" class="hidden">
-      <p>Would you still give them virtue points if they disagree with you ideologically?</p>
-      <button class="hypo-btn" data-answer="yes">Yes</button>
-      <button class="hypo-btn" data-answer="no">No</button>
+    <div id="section-2" class="hidden">
+      <h2>I am opposed to someone who is:</h2>
+      <div id="opposed-section"></div>
+      <button id="compare-button">Continue</button>
+    </div>
+
+    <div id="question-3" class="hidden">
+      <h3>Would you still give them virtue points if they disagree with you ideologically?</h3>
+      <button id="yes-button">Yes</button>
+      <button id="no-button">No</button>
     </div>
 
     <div id="penalty-section" class="hidden">
-      <p>Select the traits you would ignore their virtue for:</p>
-      <div id="penalty-options" class="dropdowns"></div>
+      <h3>Select the traits you would ignore their virtue for:</h3>
+      <div id="penalty-options"></div>
     </div>
 
-    <div id="final-result" class="hidden">
-      <h2>🧾 Final Scorecard</h2>
-      <p>Portrayed Score: <span id="portrayed"></span></p>
-      <p>Revealed Score: <span id="revealed"></span></p>
-      <p id="hypocrisy-msg"></p>
-    </div>
+    <div id="result" class="result"></div>
   </div>
 
   <script src="script.js"></script>
